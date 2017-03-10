@@ -17,31 +17,20 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.view1) TextView view1;
-
-    @BindView(R.id.view2)
-    TextView view2;
-
-    @BindView(R.id.view3)
-    TextView view3;
-
-    @BindView(R.id.view4)
-    TextView view4;
-
-    @BindView(R.id.view5)
-    TextView view5;
-
-    @BindView(R.id.button)
-    Button btn;
+    @BindView(R.id.view2) TextView view2;
+    @BindView(R.id.view3) TextView view3;
+    @BindView(R.id.view4) TextView view4;
+    @BindView(R.id.view5) TextView view5;
+    @BindView(R.id.button) Button btn;
 
     TextView[] arrayTv = new TextView[VIEW_NUM];
+    int[] colors       = new int[VIEW_NUM];
 
     boolean isRoll = false;
-
     Handler handler;
-    int[] colors = new int[VIEW_NUM];
+    int nowNumber = 0; // 0~4
 
     public static final int VIEW_NUM = 5;
-    int nowNumber = 0; // 0~4
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             handler = new Handler();
 
-            Thread thread = new Thread(new Runnable() {
+            new Thread(new Runnable() {
                 @Override
                 public void run() {
                     while(isRoll){
@@ -94,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    Random r = new Random();
-                    int count = r.nextInt(5) + 7;
+                    int count = new Random().nextInt(5) + 7;
 
                     for(int i = 0;count != i;i++) {
                         handler.post(new Runnable() {
@@ -129,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     });
 
                 }
-            });
-            thread.start();
+            }).start();
         } else {
             isRoll = false;
             btn.setText("Please wait");
