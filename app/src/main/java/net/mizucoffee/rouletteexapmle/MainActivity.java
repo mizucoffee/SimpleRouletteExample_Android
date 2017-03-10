@@ -6,6 +6,9 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,27 +78,63 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 int before = nowNumber - 1;
-                                int now = nowNumber;
                                 if(before < 0) before = VIEW_NUM - 1;
                                 arrayTv[before].setBackgroundColor(colors[before]);
-                                arrayTv[now].setBackgroundColor(Color.WHITE);
+                                arrayTv[nowNumber].setBackgroundColor(Color.WHITE);
 
                                 nowNumber++;
                                 if(nowNumber > VIEW_NUM - 1) nowNumber = 0;
                             }
                         });
-                        
+
                         try {
                             Thread.sleep(100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
+
+                    Random r = new Random();
+                    int count = r.nextInt(5) + 7;
+
+                    for(int i = 0;count != i;i++) {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                int before = nowNumber - 1;
+                                int now = nowNumber;
+                                if (before < 0) before = VIEW_NUM - 1;
+                                arrayTv[before].setBackgroundColor(colors[before]);
+                                arrayTv[now].setBackgroundColor(Color.WHITE);
+
+                                nowNumber++;
+                                if (nowNumber > VIEW_NUM - 1) nowNumber = 0;
+                            }
+                        });
+                        try {
+                            Thread.sleep(100 + (i * 2) * (i * 3));
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            int ans = nowNumber == 0 ? 5 : nowNumber;
+                            Toast.makeText(getApplicationContext(),"結果: " + (ans),Toast.LENGTH_SHORT).show();
+                            btn.setText("start");
+                            btn.setEnabled(true);
+                        }
+                    });
+
                 }
             });
             thread.start();
         } else {
             isRoll = false;
+            btn.setText("Please wait");
+            btn.setEnabled(false);
         }
     }
 
