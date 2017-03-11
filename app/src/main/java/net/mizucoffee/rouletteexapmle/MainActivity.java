@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                arrayTv[nowNumber].setBackgroundColor(colors[nowNumber]);
+                                arrayTv[nowNumber-1].setBackgroundColor(colors[nowNumber-1]);
                             }
                         });
                         try {
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                arrayTv[nowNumber].setBackgroundColor(Color.WHITE);
+                                arrayTv[nowNumber-1].setBackgroundColor(Color.WHITE);
                             }
                         });
                         try {
