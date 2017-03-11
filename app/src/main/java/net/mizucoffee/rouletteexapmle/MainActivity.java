@@ -116,11 +116,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
-                    for(int i = 0;3 != i;i++) {
+                    for(int i = 0;2 != i;i++) {
+                        final int now = nowNumber == 0 ? 4 : nowNumber - 1;
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                arrayTv[nowNumber-1].setBackgroundColor(colors[nowNumber-1]);
+                                arrayTv[now].setBackgroundColor(colors[now]);
                             }
                         });
                         try {
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                arrayTv[nowNumber-1].setBackgroundColor(Color.WHITE);
+                                arrayTv[now].setBackgroundColor(Color.WHITE);
                             }
                         });
                         try {
