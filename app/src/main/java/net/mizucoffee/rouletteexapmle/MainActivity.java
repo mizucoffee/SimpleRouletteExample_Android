@@ -116,6 +116,31 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
+                    for(int i = 0;3 != i;i++) {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                arrayTv[nowNumber].setBackgroundColor(colors[nowNumber]);
+                            }
+                        });
+                        try {
+                            Thread.sleep(375);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                arrayTv[nowNumber].setBackgroundColor(Color.WHITE);
+                            }
+                        });
+                        try {
+                            Thread.sleep(375);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
                 }
             }).start();
         } else {
