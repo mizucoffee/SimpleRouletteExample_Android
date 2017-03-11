@@ -1,4 +1,4 @@
-package net.mizucoffee.rouletteexapmle;
+package net.mizucoffee.rouletteexample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package net.mizucoffee.rouletteexapmle;
+package net.mizucoffee.rouletteexample;
 
 import org.junit.Test;
 

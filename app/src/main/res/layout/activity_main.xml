@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,74 +10,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="net.mizucoffee.rouletteexapmle.MainActivity"
+    tools:context="net.mizucoffee.rouletteexample.MainActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+    <net.mizucoffee.rouletteexample.RouletteView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:layout_weight="1"
-            android:text="1"
-            android:id="@+id/view1"
-            android:background="@android:color/holo_red_light"
-            android:gravity="center"
-            android:textSize="30sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:layout_weight="1"
-            android:text="2"
-            android:id="@+id/view2"
-            android:background="@android:color/holo_orange_light"
-            android:gravity="center"
-            android:textSize="30sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:layout_weight="1"
-            android:text="3"
-            android:id="@+id/view3"
-            android:background="@android:color/holo_green_light"
-            android:gravity="center"
-            android:textSize="30sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:layout_weight="1"
-            android:text="4"
-            android:id="@+id/view4"
-            android:background="@android:color/holo_blue_light"
-            android:gravity="center"
-            android:textSize="30sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="@dimen/activity_vertical_margin"
-            android:layout_weight="1"
-            android:text="5"
-            android:id="@+id/view5"
-            android:background="@android:color/holo_purple"
-            android:gravity="center"
-            android:textSize="30sp" />
-    </LinearLayout>
+        android:layout_height="match_parent"
+        custom:roulette_piece="5"
+        android:layout_weight="1"
+        android:id="@+id/view" />
 
     <Button
         android:text="Start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button" />
-
 
 </LinearLayout>

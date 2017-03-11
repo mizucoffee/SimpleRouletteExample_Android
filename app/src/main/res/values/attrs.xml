@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RouletteView">
+        <attr name="roulette_piece" format="integer" />
+    </declare-styleable>
+</resources>

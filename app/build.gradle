@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "net.mizucoffee.rouletteexapmle"
+        applicationId "net.mizucoffee.rouletteexample"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
